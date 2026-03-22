@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-curl -s https://raw.githubusercontent.com/jaltuna/refind-theme-nord/main/setup.sh -o setup.sh
+curl -s https://raw.githubusercontent.com/TheWhale2307/refind-theme-nord/main/setup.sh -o setup.sh
 sudo bash setup.sh
 
 # Removing refind-theme-nord cloned

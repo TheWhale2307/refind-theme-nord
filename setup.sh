@@ -43,7 +43,7 @@ main() {
   if ! [[ "${THEME_ROOT#*/}" == "usr/share/refind/themes/nord" ]]; then    
     echo "Downloading rEFInd theme Nord..."
 
-    if ! git clone "https://github.com/jaltuna/refind-theme-nord.git" &>/dev/null; then
+    if ! git clone "https://github.com/TheWhale2307/refind-theme-nord.git" &>/dev/null; then
       echo "Could not downloaded refind-theme-nord"
       exit 1
     fi
@@ -88,8 +88,8 @@ main() {
   if ! grep -e "^$INCLUDE_LINE" "$REFIND_CONF" &>/dev/null; then
     sed "s/^include/#include/g" -i "$REFIND_CONF"
     sync
-
-    echo -e "\n#Nord theme\n$INCLUDE_LINE" >> "$REFIND_CONF"
+    # Prepend instead of appending. This way you can still overwrite the config easily
+    echo -e "# Nord theme\n$INCLUDE_LINE\n" | cat - "$REFIND_CONF" > /tmp/refind_tmp && mv /tmp/refind_tmp "$REFIND_CONF"
     sync
   fi
 
