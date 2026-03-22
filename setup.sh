@@ -89,7 +89,7 @@ main() {
     sed "s/^include/#include/g" -i "$REFIND_CONF"
     sync
     # Prepend instead of appending. This way you can still overwrite the config easily
-    echo -e "# Nord theme\n$INCLUDE_LINE\n" | cat - "$REFIND_CONF" > /tmp/refind_tmp && mv /tmp/refind_tmp "$REFIND_CONF"
+    echo -e "# Nord theme\n$INCLUDE_LINE\n\n" | cat - "$REFIND_CONF" > /tmp/refind_tmp && mv /tmp/refind_tmp "$REFIND_CONF"
     sync
   fi
 
